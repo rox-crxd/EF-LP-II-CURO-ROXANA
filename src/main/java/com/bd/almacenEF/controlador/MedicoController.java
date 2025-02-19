@@ -26,7 +26,7 @@ public class MedicoController {
 		//Enviamos hacia la vista
 		modelo.addAttribute("listado",listado);
 		//Retornamos
-		return "/Vistas/ListadoMedicos";
+		return "Vistas/ListadoMedicos";
 	}
 	//creamos el metodo para registrar
 	@GetMapping ("/RegistrarMedico")
@@ -36,7 +36,7 @@ public class MedicoController {
 		//Enviamos hacia la vista
 		modelo.addAttribute("regmedico",tblmed);
 		//Retornamos al formulario
-		return "/Vistas/FrmRegMedico";
+		return "Vistas/FrmRegMedico";
 	}
 	//Realizamos el mapeo con postmapping
 	@PostMapping ("/GuardarMedico")
@@ -49,18 +49,18 @@ public class MedicoController {
 	}
 	//Editar
 	@GetMapping ("/editarmedico/{id}")
-	public String Editar(@PathVariable("id") Integer idmedico, Model modelo) {
+	public String Editar(@PathVariable("id") Integer idmedicot3, Model modelo) {
 
-		TblMedicot3 clmedico=imedicoservicio.buscarporId(idmedico);
+		TblMedicot3 clmedico=imedicoservicio.buscarporId(idmedicot3);
 		modelo.addAttribute("regmedico", clmedico);
-		return "/Vistas/FrmRegistrarMedico";
+		return "Vistas/FrmRegMedico";
 	}
 	//Eliminar
 	
 	@GetMapping ("/eliminarmedico/{id}")
-	public String eliminar(@PathVariable("id") Integer idmedico, Model modelo) {
+	public String eliminar(@PathVariable("id") Integer idmedicot3, Model modelo) {
 		TblMedicot3 tblmed=new TblMedicot3();
-		tblmed.setIdmedicot3(idmedico);
+		tblmed.setIdmedicot3(idmedicot3);
 		//Aplicamos la inyeccion de dependencia
 		imedicoservicio.EliminarMedico(tblmed);
 		//Actualizamos el listado

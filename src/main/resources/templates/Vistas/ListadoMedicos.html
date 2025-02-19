@@ -53,50 +53,49 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1>Listado de Médicos</h1>
+	<div class="container">
+	    <h1>Listado de Médicos</h1>
 
-        <div class="add-btn">
-            <a th:href="@{/RegistrarMedico}" class="btn btn-primary">
-                <i class="fas fa-user-plus"></i> Nuevo Registro
-            </a>
-        </div>
+	    <div class="add-btn">
+	        <a th:href="@{/Vistas/RegistrarMedico}" class="btn btn-primary">
+	            Nuevo Registro
+	        </a>
+	    </div>
 
-        <table class="table table-hover table-bordered">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Email</th>
-                    <th>DNI</th>
-                    <th>Estado Civil</th>
-                    <th>Fecha de Nacimiento</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <th:block th:each="m : ${listado}">
-                    <tr>
-                        <td th:text="${m.idmedico}"></td>
-                        <td th:text="${m.nombre}"></td>
-                        <td th:text="${m.apellido}"></td>
-                        <td th:text="${m.email}"></td>
-                        <td th:text="${m.dni}"></td>
-                        <td th:text="${m.estadocivil}"></td>
-                        <td th:text="${#dates.format(m.fechanacimiento, 'dd-MM-yyyy')}"></td>
-                        <td>
-                            <a th:href="@{/editarmedico/}+${m.idmedico}" class="btn btn-sm btn-warning">
-                                <i class="fas fa-edit"></i> Editar
-                            </a>
-                            <a th:href="@{/eliminarmedico/}+${m.idmedico}" class="btn btn-sm btn-danger">
-                                <i class="fas fa-trash-alt"></i> Eliminar
-                            </a>
-                        </td>
-                    </tr>
-                </th:block>
-            </tbody>
-        </table>
-    </div>
-</body>
+	    <table class="table table-hover table-bordered">
+	        <thead>
+	            <tr>
+	                <th>ID</th>
+	                <th>Nombre</th>
+	                <th>Apellido</th>
+	                <th>Email</th>
+	                <th>DNI</th>
+	                <th>Estado Civil</th>
+	                <th>Fecha de Nacimiento</th>
+	                <th>Acciones</th>
+	            </tr>
+	        </thead>
+	        <tbody>
+	            <th:block th:each="m : ${listado}">
+	                <tr>
+	                    <td th:text="${m.idmedicot3}"></td>
+	                    <td th:text="${m.nombret3}"></td>
+	                    <td th:text="${m.apellidot3}"></td>
+	                    <td th:text="${m.emailt3}"></td>
+	                    <td th:text="${m.dnit3}"></td>
+	                    <td th:text="${m.estadocivilt3}"></td>
+	                    <td th:text="${#dates.format(m.fechanacimt3, 'dd-MM-yyyy')}"></td>
+	                    <td>
+							<a th:href="@{/Vistas/editarmedico/{id}(id=${m.idmedicot3})}" class="btn btn-sm btn-warning">
+							    <i class="fas fa-edit"></i> Editar
+							</a>
+							<a th:href="@{/Vistas/eliminarmedico/{id}(id=${m.idmedicot3})}" class="btn btn-sm btn-danger">
+							    <i class="fas fa-trash-alt"></i> Eliminar
+							</a>
+	                    </td>
+	                </tr>
+	            </th:block>
+	        </tbody>
+	    </table>
+	</div>
 </html>
